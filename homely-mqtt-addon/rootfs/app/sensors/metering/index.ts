@@ -1,11 +1,7 @@
 // HAN sensor, untested.
 
-import * as demand from './demand';
-import * as summationdelivered from './summationdelivered';
-import * as summationreceived from './summationreceived';
+import * as demand from "./demand";
+import * as summationdelivered from "./summationdelivered";
+import * as summationreceived from "./summationreceived";
 
-export default [
-  demand.sensor,
-  summationdelivered.sensor,
-  summationreceived.sensor,
-];
+export default [demand.sensor, summationdelivered.sensor, summationreceived.sensor];

@@ -1,15 +1,14 @@
-import pino from 'pino';
-import config from 'config';
-import { Config } from '../models/config';
+import pino from "pino";
+import { appConfig } from "./config";
 
-const logLevel = config.get<Config['logLevel']>('logLevel');
+const logLevel = appConfig.logLevel;
 
 export const logger = pino({
-  level: logLevel ?? 'info',
-  transport: {
-    target: 'pino-pretty',
-    options: {
-      colorize: true,
-    },
-  },
+	level: logLevel ?? "info",
+	transport: {
+		target: "pino-pretty",
+		options: {
+			colorize: true,
+		},
+	},
 });
