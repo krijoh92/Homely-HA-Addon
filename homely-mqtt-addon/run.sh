@@ -14,4 +14,4 @@ bashio::log.info "MQTT_PORT: ${MQTT_PORT}"
 bashio::log.info "Starting Homely MQTT Bridge..."
 
 cd /app
-npm run start
+bun run start

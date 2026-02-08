@@ -1,7 +1,7 @@
-FROM node:18-alpine
+FROM oven/bun:latest
 
 ARG TARGETPLATFORM
-# Create app directory
+
 WORKDIR /app
 
 # Copy package-install.sh
@@ -11,18 +11,14 @@ COPY package-install.sh ./
 ENV PYTHONUNBUFFERED=1
 RUN ./package-install.sh
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Copy package files
+COPY package.json bun.lock* ./
 
 # Install dependencies
-RUN npm install --sqlite=/usr/local
+RUN bun install
 
 # Copy app source code
 COPY . .
 
-# Build
-RUN npm run build
-
 # Run app
-WORKDIR /app/dist
-CMD [ "node", "index.js" ]
+CMD ["bun", "run", "index.ts"]

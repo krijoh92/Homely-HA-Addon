@@ -1,1 +1,1 @@
-export { HomelyDevice, HomelyFeature } from './homely';
+export { HomelyDevice, HomelyFeature } from "./homely";
